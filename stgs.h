@@ -16,6 +16,10 @@
 #include <stgs/stgs-config.h>
 #include <perst/perst_interface.h>
 
+#include <QDate>
+#include <QDateTime>
+#include <QTime>
+
 QT_BEGIN_NAMESPACE
 class QSettings;
 QT_END_NAMESPACE
@@ -214,7 +218,6 @@ public:
 
 
 
-
     // not part of the PerstInterface
 
 
@@ -258,6 +261,78 @@ public:
             const PERST_STRING & name,
             bool value);
 
+
+
+    //! Get the string list for a key; the value type MUST be an array of strings.
+    inline QDate
+    valueDate (
+            const PERST_STRING & name,
+            const QDate & default_val) {
+        if (hasKey (name)) return valueDate (name);
+        else return default_val;
+    }
+
+    //! Get the string list for a key; the value type MUST be an array of strings.
+    inline QDate
+    valueDate (
+            const PERST_STRING & name) {
+        return QDate::fromString (valueS (name), Qt::ISODate);
+    }
+    //! Set the real value for a key.
+    virtual bool
+    setValue (
+            const PERST_STRING & name,
+            const QDate & value) {
+        return Stgs::setValue(name, value.toString (Qt::ISODate));
+    }
+
+
+    //! Get the string list for a key; the value type MUST be an array of strings.
+    inline QTime
+    valueTime (
+            const PERST_STRING & name,
+            const QTime & default_val) {
+        if (hasKey (name)) return valueTime (name);
+        else return default_val;
+    }
+
+    //! Get the string list for a key; the value type MUST be an array of strings.
+    inline QTime
+    valueTime (
+            const PERST_STRING & name) {
+        return QTime::fromString (valueS (name), Qt::ISODate);
+    }
+    //! Set the real value for a key.
+    virtual bool
+    setValue (
+            const PERST_STRING & name,
+            const QTime & value) {
+        return Stgs::setValue(name, value.toString (Qt::ISODate));
+    }
+
+
+    //! Get the string list for a key; the value type MUST be an array of strings.
+    inline QDateTime
+    valueDateTime (
+            const PERST_STRING & name,
+            const QDateTime & default_val) {
+        if (hasKey (name)) return valueDateTime (name);
+        else return default_val;
+    }
+
+    //! Get the string list for a key; the value type MUST be an array of strings.
+    inline QDateTime
+    valueDateTime (
+            const PERST_STRING & name) {
+        return QDateTime::fromString (valueS (name), Qt::ISODate);
+    }
+    //! Set the real value for a key.
+    virtual bool
+    setValue (
+            const PERST_STRING & name,
+            const QDateTime & value) {
+        return Stgs::setValue(name, value.toString (Qt::ISODate));
+    }
 
 protected:
 
