@@ -12,8 +12,8 @@ macro    (stgsInit
           ref_cnt_use_mode)
 
     # default name
-    if (NOT TEM_PILE_INIT_NAME)
-        set(TEM_PILE_INIT_NAME "Stgs")
+    if (NOT STGS_INIT_NAME)
+        set(STGS_INIT_NAME "Stgs")
     endif ()
 
     # compose the list of headers and sources
@@ -23,12 +23,12 @@ macro    (stgsInit
         "stgs.cc")
 
     pileSetSources(
-        "${TEM_PILE_INIT_NAME}"
+        "${STGS_INIT_NAME}"
         "${STGS_HEADERS}"
         "${STGS_SOURCES}")
 
     pileSetCommon(
-        "${TEM_PILE_INIT_NAME}"
+        "${STGS_INIT_NAME}"
         "0;0;1;d"
         "ON"
         "${ref_cnt_use_mode}"
