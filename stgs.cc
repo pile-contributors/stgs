@@ -19,7 +19,6 @@
 
 /* ------------------------------------------------------------------------- */
 /**
- * Detailed description for constructor.
  */
 Stgs::Stgs() :
     version_(-1),
@@ -36,7 +35,6 @@ Stgs::Stgs() :
 
 /* ------------------------------------------------------------------------- */
 /**
- * Detailed description for destructor.
  */
 Stgs::~Stgs()
 {
