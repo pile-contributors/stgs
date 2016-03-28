@@ -82,7 +82,7 @@ bool Stgs::beginGroup (const PERST_STRING & name)
 /* ========================================================================= */
 
 /* ------------------------------------------------------------------------- */
-bool Stgs::endGroup (const PERST_STRING & name)
+bool Stgs::endGroup (const PERST_STRING & /*name*/)
 {
     array_index_ = -1;
     impl_->endGroup();
@@ -108,7 +108,7 @@ int Stgs::beginReadArray (const PERST_STRING & name)
 /* ========================================================================= */
 
 /* ------------------------------------------------------------------------- */
-bool Stgs::endArray (const PERST_STRING & name)
+bool Stgs::endArray (const PERST_STRING & /*name*/)
 {
     impl_->endArray ();
     array_index_ = -1;
